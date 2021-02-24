@@ -4,7 +4,9 @@ function App() {
 	return (
 		<div>
 			<h1>Hello World</h1>
-			<p>This is an app for predicting matches</p>
+			<p>
+				This is an app for predicting football and basketball outcomes
+			</p>
 		</div>
 	);
 }
