@@ -1,13 +1,13 @@
-import "./App.css";
+import Background from "./layout/Background/Background";
 
 function App() {
 	return (
-		<div>
+		<Background>
 			<h1>Hello World</h1>
 			<p>
 				This is an app for predicting football and basketball outcomes
 			</p>
-		</div>
+		</Background>
 	);
 }
 
