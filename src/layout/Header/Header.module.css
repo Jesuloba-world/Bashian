@@ -1,0 +1,11 @@
+.Header {
+	background-image: linear-gradient(
+		to right bottom,
+		rgb(66, 103, 204),
+		rgb(24, 47, 110)
+	);
+}
+
+.sport {
+	display: flex;
+}

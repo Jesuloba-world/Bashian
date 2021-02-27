@@ -1,0 +1,21 @@
+.HeaderBtn {
+	flex-basis: 100%;
+	background-color: transparent;
+	border: none;
+	height: 3rem;
+	color: white;
+	font-size: 1.6rem;
+	position: relative;
+}
+
+.HeaderBtn:not(:last-child) {
+	border-right: 1px solid #000;
+}
+
+.HeaderBtn:focus {
+	outline: none;
+}
+
+.active {
+	background-color: #2d4b9d;
+}
