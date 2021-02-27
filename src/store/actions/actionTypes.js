@@ -1,0 +1,2 @@
+export const SELECT_SPORT = "SELECT_SPORT";
+export const SELECT_LEAGUE = "SELECT_LEAGUE";
