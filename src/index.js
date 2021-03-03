@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import genReducer from "./store/reducers/general";
+import dataReducer from "./store/reducers/data";
 // saga
 import createSagaMiddleware from "redux-saga";
 
@@ -19,6 +20,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
 	gen: genReducer,
+	data: dataReducer,
 });
 
 const store = createStore(
