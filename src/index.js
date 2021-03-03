@@ -10,6 +10,7 @@ import genReducer from "./store/reducers/general";
 import dataReducer from "./store/reducers/data";
 // saga
 import createSagaMiddleware from "redux-saga";
+import { watchDataGet } from "./store/sagas/index";
 
 const composeEnhancers =
 	(process.env.NODE_ENV !== "production"
@@ -27,6 +28,8 @@ const store = createStore(
 	rootReducer,
 	composeEnhancers(applyMiddleware(sagaMiddleware))
 );
+
+sagaMiddleware.run(watchDataGet);
 
 ReactDOM.render(
 	<React.StrictMode>
