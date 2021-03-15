@@ -4,7 +4,6 @@ import {
 	selectSport,
 	selectLeague,
 	getData,
-	getDataStart,
 } from "../../../../store/actions/index";
 
 const HeaderBtn = (props) => {
@@ -13,6 +12,10 @@ const HeaderBtn = (props) => {
 			state.gen.sport === props.title ||
 			state.gen.league.name === props.title
 	);
+
+	const getStat = useSelector((state) => {
+		return { sport: state.gen.sport, league: state.gen.league };
+	});
 
 	const dispatch = useDispatch();
 
@@ -32,7 +35,7 @@ const HeaderBtn = (props) => {
 		if (props.league) {
 			dispatch(selectLeague({ name: props.title, id: props.id }));
 		}
-		dispatch(getData());
+		dispatch(getData(getStat));
 	};
 
 	return (
