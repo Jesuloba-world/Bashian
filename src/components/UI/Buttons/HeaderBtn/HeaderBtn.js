@@ -7,14 +7,14 @@ import {
 } from "../../../../store/actions/index";
 
 const HeaderBtn = (props) => {
-	const active = useSelector(
-		(state) =>
+	const active = useSelector((state) => {
+		if (!state.gen.league) {
+			return state.gen.sport === props.title;
+		}
+		return (
 			state.gen.sport === props.title ||
 			state.gen.league.name === props.title
-	);
-
-	const getStat = useSelector((state) => {
-		return { sport: state.gen.sport, league: state.gen.league };
+		);
 	});
 
 	const dispatch = useDispatch();
@@ -34,8 +34,13 @@ const HeaderBtn = (props) => {
 		}
 		if (props.league) {
 			dispatch(selectLeague({ name: props.title, id: props.id }));
+			dispatch(
+				getData({
+					sport: props.name,
+					league: { name: props.title, id: props.id },
+				})
+			);
 		}
-		dispatch(getData(getStat));
 	};
 
 	return (

@@ -16,7 +16,7 @@ const initialState = {
 	sports: ["football", "basketball"],
 	sport: "football",
 	leagues: football_leagues,
-	league: football_leagues[0],
+	league: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,21 +24,19 @@ const reducer = (state = initialState, action) => {
 		case actionTypes.SELECT_SPORT:
 			const leag = {
 				leagues: null,
-				league: null,
 			};
 			if (action.sport === "football") {
 				leag.leagues = football_leagues;
-				leag.league = football_leagues[0];
 			}
 			if (action.sport === "basketball") {
 				leag.leagues = basketball_leagues;
-				leag.league = basketball_leagues[0];
 			}
 
 			return {
 				...state,
 				sport: action.sport,
 				...leag,
+				league: null,
 			};
 		case actionTypes.SELECT_LEAGUE:
 			return {
