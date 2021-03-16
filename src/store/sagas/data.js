@@ -12,9 +12,21 @@ export function* getDataSaga(action) {
 		let table = null;
 		if (action.sport === "football") {
 		} else if (action.sport === "basketball") {
+			// const response = yield fetch(
+			// 	`https://v1.basketball.api-sports.io/statistics?season=${}&team=139&league=12`,
+			// 	{
+			// 		method: "GET",
+			// 		headers: {
+			// 			"x-rapidapi-host": "v1.basketball.api-sports.io",
+			// 			"x-rapidapi-key": apiKey,
+			// 		},
+			// 	}
+			// );
+			// yield console.log(response);
+
 			table = yield NBAteams.map((team) => {
 				// return fetch(
-				// 	`https://v1.basketball.api-sports.io/teams?id=${team.id}`,
+				// 	`https://v1.basketball.api-sports.io/statistics?season=${action.season}&team=${team.id}&league=${action.league.id}`,
 				// 	{
 				// 		method: "GET",
 				// 		headers: {
@@ -23,10 +35,24 @@ export function* getDataSaga(action) {
 				// 		},
 				// 	}
 				// );
+
 				return axios.get(
-					`https://v1.basketball.api-sports.io/teams?id=${team.id}`,
+					`https://v1.basketball.api-sports.io/statistics?season=${action.season}&team=${team.id}&league=${action.league.id}`,
 					config
 				);
+
+				// return axios({
+				// 	method: "GET",
+				// 	url: `https://v1.basketball.api-sports.io/teams?id=${team.id}`,
+				// 	headers: {
+				// 		"content-type": "application/json",
+				// 		"x-rapidapi-host": "v1.basketball.api-sports.io",
+				// 		"x-rapidapi-key": apiKey,
+				// 	},
+				// 	// params: {
+				// 	// 	search: "parameter",
+				// 	// },
+				// });
 			});
 		}
 		yield console.log(table);
